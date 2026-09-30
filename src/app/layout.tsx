@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Barlow_Condensed } from "next/font/google";
 import { siteUrl } from "../lib/site";
+import "./themes.css";
 import "./globals.css";
 import "./systems-lab.css";
 const inter = Inter({
@@ -52,7 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: `(function(){var t;try{t=localStorage.getItem('azqa-theme')}catch(e){}if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.dataset.theme=t})()` }} /></head>
       <body
         className={
           inter.variable + " " + mono.variable + " " + display.variable

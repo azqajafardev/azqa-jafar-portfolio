@@ -265,3 +265,26 @@ test("visual demonstrations, system index, corrected dates and recognition light
   await expect(opener).toBeFocused();
   expect(errors).toEqual([]);
 });
+
+test('light and dark themes persist, follow system preference, and fit mobile navigation', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.emulateMedia({ colorScheme: 'light' });
+  await page.goto('/');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  const toggle = page.getByRole('button', { name: 'Toggle light and dark theme' });
+  await toggle.click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await toggle.click();
+  for (const width of [320, 375, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await expect(toggle).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+  }
+  await page.goto('/projects/researchlens-ai');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await expect(toggle).toBeVisible();
+  expect(errors).toEqual([]);
+});

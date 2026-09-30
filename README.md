@@ -4,13 +4,13 @@ A personal portfolio built with Next.js App Router, TypeScript, Tailwind CSS, Fr
 ![Portfolio preview](docs/systems-lab-preview.jpg)
 
 ## Live site
-Production deployment is awaiting Vercel account authorization. No public URL is claimed yet.
+https://azqa-jafar-portfolio.vercel.app
 
 ## Overview
 An original AI engineering portfolio built around data → retrieval → reasoning → action. The reference portfolio served as a quality benchmark; the visual identity, content, and project diagrams are independently designed.
 
 ## Features
-- Responsive dark portfolio with a supplied, unaltered professional photograph
+- Responsive light/dark portfolio with a persistent, system-aware theme toggle and the supplied, unaltered portrait
 - Five visual-first project chapters and matching case studies: multi-agent command graph, query-driven RAG laboratory, converging telemetry, knowledge constellation, and multi-plane imaging research
 - Interactive system index, linked hover/focus paths, query replay, and per-system animation controls
 - Supplied achievement photographs in alternating editorial features, with a native-dialog lightbox, keyboard navigation, and focus restoration

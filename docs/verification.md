@@ -25,7 +25,7 @@ Project interfaces are labeled illustrations of documented capabilities. No real
 
 Publication metadata and the reported 98.91% result follow the supplied CV. ScienceDirect blocks automated retrieval.
 
-Vercel remains signed out. Account authorization is required before deployment and public URL verification. No live URL is claimed.
+Production deployed to https://azqa-jafar-portfolio.vercel.app. The public homepage was verified in an unauthenticated browser. The Vercel cloud build and TypeScript check passed. GitHub integration could not connect; publishing currently uses the authenticated Vercel CLI.
 
 Direct form delivery requires Resend credentials and a verified sender. The email-draft fallback works without that configuration.
 
@@ -34,3 +34,13 @@ Direct form delivery requires Resend credentials and a verified sender. The emai
 Run npm run lint, npm run typecheck, npm run build, and npm start.
 In another terminal run npm test. Browser tests use installed Google Chrome.
 Set TEST_BASE_URL to test another local or production origin.
+
+## Light/dark theme and live deployment review
+
+- Theme controls on the homepage and all five project pages; initial system preference, localStorage persistence, cross-tab updates, and a no-flash initialization script.
+- Both themes use explicit CSS color tokens; photographs remain unchanged. Three low-contrast cyan labels in the light theme were corrected.
+- Live homepage Axe WCAG 2 A/AA and 2.1 AA checks: zero violations in each theme, tested with fresh page loads. No page errors were recorded.
+- Reviewed desktop hero and mobile retrieval-system screenshots. The existing seven functional scenarios passed against the production build.
+- Public HTTPS checks returned HTTP 200 for the homepage, project page, PDF, sitemap, robots, and manifest. Canonical and sitemap URLs use the production domain; the PDF has a valid PDF header.
+- Final Vercel deployment: dpl_53AK3z2Uc2XQWf8yCL1VwL49NB4S. Build and TypeScript passed; ESLint passed locally.
+- Final live regression rerun passed both the five-project-route scenario and the new theme scenario (system preference, switching, reload persistence, 320/375/768/1440 widths, and project-page toggle). All eight scenarios have passed, with affected tests rerun against the final deployment.
