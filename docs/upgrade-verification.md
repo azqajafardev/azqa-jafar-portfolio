@@ -1,4 +1,4 @@
-﻿# Image-led upgrade verification — 30 September 2026
+# Image-led upgrade verification — 30 September 2026
 
 ## Completed implementation
 
@@ -23,3 +23,17 @@ The Resend server integration and secure recipient configuration are implemented
 ## Assets
 
 See [asset provenance and exact generation prompts](project-visual-assets.md). Supplied portrait and achievement photographs were not modified.
+## Review perspectives and fixes
+
+- Recruiter: generic architecture boxes did not communicate the project domain quickly. Added original network/campus/scientific imagery, distinct titles and short statements; kept project explanations compact.
+- Frontend designer: the mobile campus treatment left a dark empty region, and some labels were too small. Adjusted artwork height/crop and spacing, enlarged labels, improved the source document, and added a mobile-accessible CV label.
+- Technical hiring manager: demonstrations needed inspectable evidence and a clear hiring path. Added an original document with traceable citations, stateful security/campus/monitoring interactions, MRI plane selection, and a validated multi-field Hire Me form. No absent screenshots or model results were invented.
+- Performance engineer: added imagery could increase page weight and offscreen work. Optimized all seven new images to 637,908 bytes total, used responsive lazy next/image delivery, kept animation in CSS/SVG, paused offscreen timers, and preserved reduced-motion support.
+## Production verification
+
+- Production deployment `dpl_9y7aCEwi8oZkvZpinKykQ2ihqpRu` completed successfully at https://azqa-jafar-portfolio.vercel.app. Vercel's build and TypeScript checks passed.
+- An unauthenticated mobile browser received HTTP 200. The final mobile light-theme Axe scan reported zero violations, no horizontal overflow and no page errors. Corrected campus and security compositions were visually inspected on the live site.
+- A real production form submission was attempted with the owner's explicit authorization. The endpoint returned HTTP 503 because `RESEND_API_KEY` and `CONTACT_FROM` are not configured. The UI showed the delivery error and direct-email fallback. **No email was delivered; inbox delivery and live Reply-To remain unverified.** `CONTACT_TO` is configured securely for the supplied professional email address. Local credential-presence checks were also false, without exposing any values.
+- Public GitHub and LinkedIn profile links returned HTTP 200. ScienceDirect returned HTTP 403 to the automated request; the supplied publication URL was retained.
+
+- All 11 Playwright scenarios passed again against the final public deployment (2.2 minutes), including desktop/mobile layouts, every project route, theme persistence, contact mocks, negative API checks and keyboard/reduced-motion behavior. The final citation refinement also passed targeted lint.

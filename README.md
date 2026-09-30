@@ -106,3 +106,7 @@ Official references: [Vercel domains](https://vercel.com/docs/domains/working-wi
 
 ## Email activation
 Direct email delivery is implemented but requires the private Resend key and verified sender in Vercel. See [contact delivery setup](docs/contact-delivery.md). A successful UI mock is not a real inbox-delivery test.
+
+![Multi-plane imaging research](docs/multi-plane-research.jpg)
+
+Latest review: [image-led upgrade verification](docs/upgrade-verification.md).

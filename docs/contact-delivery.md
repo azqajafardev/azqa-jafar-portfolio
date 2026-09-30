@@ -21,3 +21,5 @@ Provider references: [send email](https://resend.com/docs/api-reference/emails/s
 ## Delivery verification
 
 The session initially found no production environment variables. CONTACT_TO was subsequently configured with the supplied professional address. A real production delivery test remains dependent on configuring the private key and verified sender. Automated UI success/error tests use mocks; they do not send mail and are not evidence of inbox delivery.
+
+The authorized production form test on 30 September 2026 returned HTTP 503 for missing provider configuration. No message was delivered. The site correctly displayed the error and direct-email fallback.
