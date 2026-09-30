@@ -11,17 +11,19 @@ An original AI engineering portfolio built around data → retrieval → reasoni
 
 ## Features
 - Responsive light/dark portfolio with a persistent, system-aware theme toggle and the supplied, unaltered portrait
-- Five visual-first project chapters and matching case studies: multi-agent command graph, query-driven RAG laboratory, converging telemetry, knowledge constellation, and multi-plane imaging research
+- Five immersive project stories and matching case studies: illustrated security operations, an evidence-tracing research workstation, an observability wall, a campus knowledge assistant, and selectable MRI-style imaging planes
 - Interactive system index, linked hover/focus paths, query replay, and per-system animation controls
 - Supplied achievement photographs in alternating editorial features, with a native-dialog lightbox, keyboard navigation, and focus restoration
 - Interactive conceptual intelligence blueprint with keyboard-selectable branches
-- Optional 2.2-second session intro, pausable stack strip, scroll progress, and reduced-motion support
+- Optional 1.8-second session intro, pausable stack strip, scroll progress, and reduced-motion support
 - Visual publication methodology and an experience ledger with a reserved date column and scroll progress
 - Barlow Condensed display typography with Inter body text and restrained monospace labels
 - Offscreen animation pausing and readable mobile-specific diagram arrangements
 - CV-based experience, skills, education, achievements, and research
 - Accessible navigation, reduced motion, and contact validation
 - Server-rendered content, canonical metadata, social previews, Person structured data, robots, and sitemap
+- Original optimized scientific/network/campus artwork: [asset provenance and generation prompts](docs/project-visual-assets.md)
+- Hire Me flow with company and opportunity fields, server-side validation, safe Reply-To email formatting, bounded requests, and basic rate limiting: [secure email setup](docs/contact-delivery.md)
 
 ![ResearchLens retrieval laboratory](docs/retrieval-lab.jpg)
 
@@ -62,7 +64,7 @@ tests/                Browser checks
 ```
 
 ## Architecture
-The homepage composes small section components. Professional data lives in src/data, including separate visual-system and milestone records; shared links live in src/lib, and project types in src/types. Interactive diagrams are client components; the main content and case studies are server rendered. Styling uses Tailwind CSS and custom responsive CSS. Motion uses CSS, SVG, and Framer Motion; no 3D engine is loaded. The SystemPanel, AnimatedFlow, FlowNode, FlowEdge, ProjectSystem, MultiAgentGraph, RAGPipeline, TelemetryPanel, KnowledgeGraph, ResearchPipeline, AchievementFeature, AchievementGallery, and ExperienceLedger components each have a bounded responsibility.
+The homepage composes small section components. Professional data lives in src/data, including separate visual-system and milestone records; shared links live in src/lib, and project types in src/types. Interactive diagrams are client components; the main content and case studies are server rendered. Styling uses Tailwind CSS, theme tokens, and custom responsive CSS. The image-led scenes retain dark scientific canvases inside either page theme to preserve the imagery. Motion uses CSS, SVG, and Framer Motion; no 3D engine is loaded. The SystemPanel, AnimatedFlow, FlowNode, FlowEdge, ProjectSystem, MultiAgentGraph, RAGPipeline, TelemetryPanel, KnowledgeGraph, ResearchPipeline, AchievementFeature, AchievementGallery, and ExperienceLedger components each have a bounded responsibility.
 
 ## Environment
 Copy .env.example to .env.local. Never commit credentials.
@@ -101,3 +103,6 @@ Repository: https://github.com/azqajafardev/azqa-jafar-portfolio
 Production deployment is awaiting Vercel account authorization. See [verification results](docs/verification.md). No live URL is claimed yet.
 
 Official references: [Vercel domains](https://vercel.com/docs/domains/working-with-domains/add-a-domain), [Search Console verification](https://support.google.com/webmasters/answer/9008080), [Google indexing requests](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl).
+
+## Email activation
+Direct email delivery is implemented but requires the private Resend key and verified sender in Vercel. See [contact delivery setup](docs/contact-delivery.md). A successful UI mock is not a real inbox-delivery test.

@@ -1,9 +1,9 @@
 import { SystemPanel } from "./system-panel";
-import { MultiAgentGraph } from "./multi-agent-graph";
-import { RAGPipeline } from "./rag-pipeline";
-import { TelemetryPanel } from "./telemetry-panel";
-import { KnowledgeGraph } from "./knowledge-graph";
-import { ResearchPipeline } from "./research-pipeline";
+import { SecurityScene } from "./security-scene";
+import { ResearchScene } from "./research-scene";
+import { MonitoringScene } from "./monitoring-scene";
+import { CampusScene } from "./campus-scene";
+import { ImagingScene } from "./imaging-scene";
 import { systemPresentation } from "../../data/system-visuals";
 const kinds = [
   "command-system",
@@ -15,15 +15,15 @@ const kinds = [
 export function ProjectSystem({ index }: { index: number }) {
   const visual =
     index === 0 ? (
-      <MultiAgentGraph />
+      <SecurityScene />
     ) : index === 1 ? (
-      <RAGPipeline />
+      <ResearchScene />
     ) : index === 2 ? (
-      <TelemetryPanel />
+      <MonitoringScene />
     ) : index === 3 ? (
-      <KnowledgeGraph />
+      <CampusScene />
     ) : (
-      <ResearchPipeline />
+      <ImagingScene />
     );
   return (
     <SystemPanel

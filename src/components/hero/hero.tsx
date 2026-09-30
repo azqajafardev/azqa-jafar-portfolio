@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDownRight, Download, Github, Linkedin } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Github, Linkedin } from "lucide-react";
 import { Reveal } from "../motion";
 import { profile } from "../../lib/site";
 export function Hero() {
@@ -42,8 +42,7 @@ export function Hero() {
       </svg>
       <div className="hero-editorial-copy">
         <div className="hero-overline">
-          <span>AI / ML ENGINEERING</span>
-          <span>GENERATIVE INTELLIGENCE SYSTEMS</span>
+          <span>AI / ML ENGINEER</span>
         </div>
         <h1 aria-label="Azqa Jafar">
           <span className="text-mask">
@@ -55,12 +54,12 @@ export function Hero() {
             </span>
           </span>
         </h1>
-        <p className="hero-job">AI & ML ENGINEER</p>
+
         <h2
           className="kinetic-statement"
-          aria-label="I build AI systems that retrieve, reason and act."
+          aria-label="Building intelligent systems that retrieve, reason and act."
         >
-          <span>I BUILD AI SYSTEMS</span>
+          <span>BUILDING INTELLIGENT SYSTEMS</span>
           <span>
             THAT <em>RETRIEVE,</em>
           </span>
@@ -76,9 +75,8 @@ export function Hero() {
           <a className="primary magnetic" href="#projects">
             Explore systems <ArrowDownRight size={17} />
           </a>
-          <a className="secondary" href="/Azqa_Jafar_CV.pdf" download>
-            <Download size={15} />
-            Download CV
+          <a className="secondary" href="#contact">
+            Hire me <ArrowUpRight size={16} />
           </a>
         </div>
         <div className="social">

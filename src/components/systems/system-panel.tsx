@@ -52,7 +52,7 @@ export function SystemPanel({
         </div>
         {children}
         <div className="system-footnote">
-          <span>INTERACTIVE ARCHITECTURE STUDY</span>
+          <span>INTERACTIVE SYSTEM STORY</span>
           <span>Illustrative presentation · not live telemetry</span>
         </div>
       </div>

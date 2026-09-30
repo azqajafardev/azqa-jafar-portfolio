@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { profile } from "../../lib/site";
-import { ResearchPipeline } from "../systems/research-pipeline";
+import { PublicationScene } from "./publication-scene";
 import { SystemPanel } from "../systems/system-panel";
 export function ResearchSection() {
   return (
@@ -28,7 +28,7 @@ export function ResearchSection() {
         number={5}
         kind="paper-system"
       >
-        <ResearchPipeline publication />
+        <PublicationScene />
       </SystemPanel>
       <div className="publication-description">
         <div>
@@ -43,7 +43,7 @@ export function ResearchSection() {
           </p>
           <p className="publication-source">
             Method summary and reported result follow the supplied CV. Input
-            artwork is abstract.
+            artwork is an original synthetic illustration.
           </p>
           <a
             className="system-cta"

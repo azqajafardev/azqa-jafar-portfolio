@@ -6,9 +6,9 @@ export function EducationSection() {
         <div>
           <p className="kicker">RECOGNITION / MILESTONES</p>
           <h2>
-            MILESTONES THAT
+            MILESTONES
             <br />
-            <em>MARK THE JOURNEY.</em>
+            <em>BEYOND THE CODE.</em>
           </h2>
         </div>
         <p>

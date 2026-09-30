@@ -21,7 +21,7 @@ export function SystemsSection() {
           Five systems. Five different ways to turn information into something
           useful.
           <br />
-          <span>Explore the architecture. Follow the reasoning.</span>
+          <span>See the domain. Follow the intelligence.</span>
         </p>
       </div>
       <SystemIndex />
@@ -51,7 +51,7 @@ export function SystemsSection() {
               <div>
                 <p>{project.description}</p>
                 <div className="system-tech">
-                  {project.tech.slice(0, index === 1 ? 10 : 8).map((tech) => (
+                  {project.tech.slice(0, 5).map((tech) => (
                     <span key={tech}>{tech}</span>
                   ))}
                 </div>
@@ -65,7 +65,7 @@ export function SystemsSection() {
                 className="next-system"
                 href={"#system-" + projects[index + 1].slug}
               >
-                <span>NEXT SYSTEM</span>
+                <span className={"continuity-signal signal-" + index} aria-hidden="true"><i/></span><span>NEXT SYSTEM</span>
                 <strong>
                   0{index + 2} / {systemPresentation[index + 1].label}
                 </strong>
@@ -75,6 +75,7 @@ export function SystemsSection() {
           </article>
         );
       })}
+      <div className="projects-hire"><p>Have a system worth building?</p><a className="system-cta" href="#contact">Hire me <ArrowUpRight size={18}/></a></div>
     </section>
   );
 }

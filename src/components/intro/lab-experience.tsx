@@ -12,7 +12,7 @@ export function LabExperience() {
   const previous = document.activeElement as HTMLElement | null;
   if (!seen && !reduced) dialog.current?.showModal();
   const close = ()=>{ if(dialog.current?.open){dialog.current.close(); previous?.focus();} };
-  const timer = setTimeout(close,2200);
+  const timer = setTimeout(close,1800);
   const scroll = ()=>{ const height=document.documentElement.scrollHeight-innerHeight; if(progress.current)progress.current.style.transform='scaleX('+(height>0?scrollY/height:0)+')'; };
   const move = (event:PointerEvent)=>{
    const target = event.target instanceof Element ? event.target.closest<HTMLElement>('.magnetic') : null;

@@ -55,12 +55,14 @@ test("project routes, diagrams, missing route, and no console errors", async ({
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     const selector =
       slug === "researchlens-ai"
-        ? ".preparation-steps button"
+        ? ".research-stagebar button"
         : slug === "system-monitoring-assistant"
           ? ".channel-select"
           : slug === "mpafnet"
-            ? ".imaging-method button"
-            : ".flow-node";
+            ? ".mri-plane"
+            : slug === "enterprise-ai-security"
+              ? ".security-sequence button"
+              : ".campus-document";
     const nodes = page.locator(selector);
     await nodes.nth(1).click();
     await expect(nodes.nth(1)).toHaveAttribute("aria-pressed", "true");
@@ -121,12 +123,15 @@ test("contact validation and honest delivery errors", async ({
   });
   expect(response.status()).toBe(400);
   await page.goto("/#contact");
-  await page.getByLabel("Name", { exact: true }).fill("Test Visitor");
   await page
-    .getByRole("textbox", { name: "Email", exact: true })
+    .getByLabel("Opportunity type")
+    .selectOption("Research Collaboration");
+  await page.getByLabel("Your name", { exact: true }).fill("Test Visitor");
+  await page
+    .getByRole("textbox", { name: "Your email", exact: true })
     .fill("test@example.com");
   await page
-    .getByLabel("Project / Opportunity", { exact: true })
+    .getByLabel("Subject", { exact: true })
     .fill("Engineering collaboration");
   await page
     .getByLabel("Message", { exact: true })
@@ -160,7 +165,7 @@ test("contact validation and honest delivery errors", async ({
   );
   await page.getByRole("button", { name: "Send message" }).click();
   await expect(page.locator(".contact-form").getByRole("status")).toContainText(
-    "Your message has been sent",
+    "your message has been sent",
   );
 });
 test("reduced motion and keyboard access", async ({ page }) => {
@@ -219,15 +224,17 @@ test("visual demonstrations, system index, corrected dates and recognition light
   await expect(page.locator("#system-researchlens-ai")).toBeFocused();
   const rag = page.locator("#system-researchlens-ai");
   await rag.getByRole("button", { name: "Run query" }).click();
-  await expect(rag.locator(".grounded-answer")).toHaveClass(/is-ready/, {
+  await expect(rag.locator(".answer-zone")).toHaveClass(/is-ready/, {
     timeout: 15000,
   });
-  await expect(rag.locator(".grounded-answer")).toContainText(
-    "No invented answer or page citations",
+  await expect(rag.locator(".answer-zone")).toContainText(
+    "Complementary views preserve different structural information",
   );
-  await rag.getByRole("button", { name: "Trace source context" }).click();
-  await expect(rag.locator(".vector-workspace")).toBeFocused();
-  await expect(rag.locator(".system-inspector")).toContainText("Retrieve");
+  await rag.getByRole("button", { name: "Trace citation B to source" }).click();
+  await expect(rag.locator(".academic-paper")).toBeFocused();
+  await expect(rag.locator(".paper-passage.is-highlighted")).toContainText(
+    "Feature integration",
+  );
   await rag.getByRole("button", { name: "Pause system 2 animation" }).click();
   await expect(rag.locator(".system-panel")).toHaveAttribute(
     "data-playing",
@@ -235,8 +242,8 @@ test("visual demonstrations, system index, corrected dates and recognition light
   );
   const knowledge = page.locator("#system-uniguide-ai");
   await knowledge.getByRole("button", { name: /KNOWLEDGE \/ 04 Fees/ }).click();
-  await expect(knowledge.locator(".knowledge-answer-path")).toContainText(
-    "FEES CONTEXT",
+  await expect(knowledge.locator(".campus-answer")).toContainText(
+    "fees documents",
   );
   await expect(page.locator(".ledger-date").first()).toContainText("OCT 2025");
   await expect(page.locator(".ledger-date").nth(1)).toContainText("AUG 2025");
@@ -266,25 +273,33 @@ test("visual demonstrations, system index, corrected dates and recognition light
   expect(errors).toEqual([]);
 });
 
-test('light and dark themes persist, follow system preference, and fit mobile navigation', async ({ page }) => {
+test("light and dark themes persist, follow system preference, and fit mobile navigation", async ({
+  page,
+}) => {
   const errors: string[] = [];
-  page.on('pageerror', error => errors.push(error.message));
-  await page.emulateMedia({ colorScheme: 'light' });
-  await page.goto('/');
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-  const toggle = page.getByRole('button', { name: 'Toggle light and dark theme' });
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  const toggle = page.getByRole("button", {
+    name: "Toggle light and dark theme",
+  });
   await toggle.click();
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await page.reload();
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await toggle.click();
   for (const width of [320, 375, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await expect(toggle).toBeVisible();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy();
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBeTruthy();
   }
-  await page.goto('/projects/researchlens-ai');
-  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await page.goto("/projects/researchlens-ai");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   await expect(toggle).toBeVisible();
   expect(errors).toEqual([]);
 });

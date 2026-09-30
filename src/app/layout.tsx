@@ -4,6 +4,7 @@ import { siteUrl } from "../lib/site";
 import "./themes.css";
 import "./globals.css";
 import "./systems-lab.css";
+import "./visual-stories.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
