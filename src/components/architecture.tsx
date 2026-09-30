@@ -1,14 +1,5 @@
-'use client';
-import { useState } from 'react';
-import type { Project } from '../data/portfolio';
-export function Architecture({ project, index }: { project: Project; index: number }) {
- const [selected,setSelected]=useState(0);
- const node=(i:number)=> <button key={i} className={'node '+(selected===i?'selected':'')} aria-pressed={selected===i} onClick={()=>setSelected(i)} onFocus={()=>setSelected(i)} onMouseEnter={()=>setSelected(i)}><span className="node-index">0{i+1}</span>{project.flow[i]}<span aria-hidden="true">↗</span></button>;
- return <div className={'architecture system-visual visual-'+index}><div className="diagram-top"><span>SYS / 0{index+1}</span><span>INTERACTIVE SCHEMATIC</span></div>
- {index===0 && <div className="security-map">{node(0)}<div className="trace"/>{node(1)}<div className="security-context"><div>{node(2)}</div><div>{node(3)}{node(4)}</div></div><div className="trace"/>{node(5)}</div>}
- {index===1 && <div className="evidence-map"><div className="query-example"><span>ILLUSTRATIVE QUESTION</span><p>How does the proposed method improve classification?</p></div><div className="evidence-pipeline">{project.flow.map((_,i)=>node(i))}</div><div className="evidence-answer"><span>ANSWER / SOURCE TRACEABILITY</span><p>Retrieved passages → source context → citation-backed response</p><small>Behavior illustration. No generated research evidence.</small></div></div>}
- {index===2 && <div className="telemetry-map"><div className="telemetry-sources" aria-label="Monitoring inputs">{['Threads','Logs','Network'].map(name=><span key={name}>{name}<i/></span>)}</div><div className="telemetry-console" aria-hidden="true"><span>› receive monitoring input</span><span>› prepare event context</span><span>› request AI-assisted interpretation</span></div><small className="visual-caption">ILLUSTRATIVE EVENT FLOW</small><div className="telemetry-pipeline">{project.flow.map((_,i)=>node(i))}</div></div>}
- {index===3 && <div className="knowledge-map">{node(0)}<div className="knowledge-sources">{['Admissions','Departments','Courses','Fees','Policies'].map(name=><span key={name}>{name}</span>)}</div><div className="knowledge-pipeline">{project.flow.slice(1).map((_,i)=>node(i+1))}</div></div>}
- {index===4 && <div className="imaging-map"><div className="image-planes" aria-hidden="true">{['Axial','Coronal','Sagittal'].map(name=><div key={name}><i/><span>{name}</span></div>)}</div><p className="visual-caption">ABSTRACT PLANE ILLUSTRATION / NO PATIENT DATA</p><div className="imaging-pipeline">{project.flow.map((_,i)=>node(i))}</div><small>Academic multi-plane research. Plane artwork is conceptual.</small></div>}
- <p className="node-description" aria-live="polite">{project.details[selected]}</p><div className="diagram-bottom"><span className="status-dot"/> Conceptual schematic of documented capabilities</div></div>;
+import type { Project } from "../data/portfolio";
+import { ProjectSystem } from "./systems/project-system";
+export function Architecture({ index }: { project: Project; index: number }) {
+  return <ProjectSystem index={index} />;
 }

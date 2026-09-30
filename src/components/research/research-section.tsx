@@ -1,3 +1,60 @@
-import { ArrowUpRight } from 'lucide-react';
-import { profile } from '../../lib/site';
-export function ResearchSection(){return <section id="research" className="section shell"><p className="kicker">05 / RESEARCH LAB</p><div className="section-heading"><h2>Questions worth asking.<br/><em>Methods worth testing.</em></h2><p>Applied deep learning, documented through research.</p></div><article className="research-notebook"><aside className="notebook-margin"><span>PUBLICATION</span><strong>01</strong><span>21 SEP<br/>2026</span></aside><div className="notebook-body"><p className="notebook-meta">AIN SHAMS ENGINEERING JOURNAL<br/>DEEP LEARNING / MEDICAL IMAGE ANALYSIS</p><h3>{profile.paper}</h3><p>A hierarchical deep-learning framework for five-class diabetic retinopathy grading on the APTOS dataset, exploring stability-driven normalization, regularization, and refined feature aggregation.</p><ol className="method-list">{['Retinal image input','Stability-driven normalization','Hierarchical feature learning','Regularization and feature aggregation','Multi-class evaluation'].map((step,i)=><li key={step}><span>0{i+1}</span>{step}</li>)}</ol><a className="primary" href={profile.publication} target="_blank" rel="noopener noreferrer">Read publication <ArrowUpRight size={16}/></a></div><div className="notebook-result"><span className="card-eyebrow">REPORTED TEST ACCURACY</span><strong>98.91%</strong><p>Five-class classification<br/>APTOS dataset</p><div className="tags"><span>Feature learning</span><span>Normalization</span><span>Regularization</span></div><p>Method summary and reported result from the supplied CV.</p><small>Research performance; not a claim of clinical deployment.</small></div></article></section>;}
+import { ArrowUpRight } from "lucide-react";
+import { profile } from "../../lib/site";
+import { ResearchPipeline } from "../systems/research-pipeline";
+import { SystemPanel } from "../systems/system-panel";
+export function ResearchSection() {
+  return (
+    <section id="research" className="section shell published-research">
+      <div className="publication-header">
+        <div>
+          <p className="kicker">RESEARCH / PUBLISHED</p>
+          <h2>
+            EXPERIMENT.
+            <br />
+            <em>EVALUATE. ADVANCE.</em>
+          </h2>
+        </div>
+        <div className="publication-stamp">
+          <span>
+            AIN SHAMS
+            <br />
+            ENGINEERING JOURNAL
+          </span>
+          <strong>21 SEP 2026</strong>
+        </div>
+      </div>
+      <SystemPanel
+        title="HIERARCHICAL DEEP LEARNING / METHOD STUDY"
+        number={5}
+        kind="paper-system"
+      >
+        <ResearchPipeline publication />
+      </SystemPanel>
+      <div className="publication-description">
+        <div>
+          <span className="micro-label">PEER-REVIEWED PUBLICATION</span>
+          <h3>{profile.paper}</h3>
+        </div>
+        <div>
+          <p>
+            A hierarchical deep-learning framework for five-class diabetic
+            retinopathy grading, with stability-driven normalization,
+            regularization, and refined feature aggregation.
+          </p>
+          <p className="publication-source">
+            Method summary and reported result follow the supplied CV. Input
+            artwork is abstract.
+          </p>
+          <a
+            className="system-cta"
+            href={profile.publication}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read paper <ArrowUpRight size={17} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

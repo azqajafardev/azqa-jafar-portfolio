@@ -1,7 +1,7 @@
-# Azqa Jafar — Intelligent Systems Lab
+# Azqa Jafar — Intelligence / Systems Lab
 A personal portfolio built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, Lucide React, next/image, and next/font.
 
-![Portfolio preview](docs/lab-preview.jpg)
+![Portfolio preview](docs/systems-lab-preview.jpg)
 
 ## Live site
 Production deployment is awaiting Vercel account authorization. No public URL is claimed yet.
@@ -11,17 +11,24 @@ An original AI engineering portfolio built around data → retrieval → reasoni
 
 ## Features
 - Responsive dark portfolio with a supplied, unaltered professional photograph
-- Five case-study routes with distinct interactive security, retrieval, telemetry, knowledge, and imaging schematics
+- Five visual-first project chapters and matching case studies: multi-agent command graph, query-driven RAG laboratory, converging telemetry, knowledge constellation, and multi-plane imaging research
+- Interactive system index, linked hover/focus paths, query replay, and per-system animation controls
+- Supplied achievement photographs in alternating editorial features, with a native-dialog lightbox, keyboard navigation, and focus restoration
 - Interactive conceptual intelligence blueprint with keyboard-selectable branches
 - Optional 2.2-second session intro, pausable stack strip, scroll progress, and reduced-motion support
-- Digital research notebook and an experience ledger with separate dates
+- Visual publication methodology and an experience ledger with a reserved date column and scroll progress
+- Barlow Condensed display typography with Inter body text and restrained monospace labels
+- Offscreen animation pausing and readable mobile-specific diagram arrangements
 - CV-based experience, skills, education, achievements, and research
 - Accessible navigation, reduced motion, and contact validation
 - Server-rendered content, canonical metadata, social previews, Person structured data, robots, and sitemap
 
+![ResearchLens retrieval laboratory](docs/retrieval-lab.jpg)
+
 ## Content sources
 Professional information is based on the supplied `public/files/Azqa_Jafar_CV.pdf`; the downloadable copy lives at `public/Azqa_Jafar_CV.pdf`.
-The photograph is `public/images/azqa-jafar.png`.
+The current portrait is `public/images/profile/azqa-jafar.jpeg`. Supplied laptop-award and Honhaar scholarship photographs are in `public/images/recognition/`. Images are displayed with CSS crops and next/image; no faces are generated or altered.
+Experience dates follow the user’s explicit latest correction: OCT 2025 — PRESENT at Minhaj Solution Software System and AUG 2025 — OCT 2025 at Efaida Technologies. These intentional corrections take priority over the older PDF dates.
 No project screenshots or project-specific repository/demo links were supplied. Diagrams are labeled schematics and no missing results or implementation details are invented.
 The supplied CV reports the publication date and 98.91% test accuracy. ScienceDirect blocked automated retrieval during development.
 
@@ -55,7 +62,7 @@ tests/                Browser checks
 ```
 
 ## Architecture
-The homepage composes small section components. Professional data lives in src/data, shared links in src/lib, and project types in src/types. Interactive diagrams are client components; the main content and case studies are server rendered. Styling uses Tailwind CSS and custom responsive CSS. Motion uses CSS and Framer Motion; no 3D engine is loaded.
+The homepage composes small section components. Professional data lives in src/data, including separate visual-system and milestone records; shared links live in src/lib, and project types in src/types. Interactive diagrams are client components; the main content and case studies are server rendered. Styling uses Tailwind CSS and custom responsive CSS. Motion uses CSS, SVG, and Framer Motion; no 3D engine is loaded. The SystemPanel, AnimatedFlow, FlowNode, FlowEdge, ProjectSystem, MultiAgentGraph, RAGPipeline, TelemetryPanel, KnowledgeGraph, ResearchPipeline, AchievementFeature, AchievementGallery, and ExperienceLedger components each have a bounded responsibility.
 
 ## Environment
 Copy .env.example to .env.local. Never commit credentials.
