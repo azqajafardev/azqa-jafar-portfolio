@@ -1,0 +1,1 @@
+export type Project = { slug: string; title: string; subtitle: string; category: string; description: string; problem: string; solution: string; flow: string[]; details: string[]; tech: string[]; features: string[]; decision: string; learning?: string; };

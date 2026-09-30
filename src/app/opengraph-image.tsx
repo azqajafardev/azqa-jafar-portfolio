@@ -1,0 +1,5 @@
+import { ImageResponse } from 'next/og';
+export const alt = 'Azqa Jafar — AI & ML Engineer | Intelligent Systems Lab';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+export default function Image() { return new ImageResponse(<div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',padding:75,background:'#080b14',color:'#f1efff',fontFamily:'sans-serif',border:'1px solid #37264c'}}><div style={{display:'flex',justifyContent:'space-between',fontSize:18,letterSpacing:3,color:'#b9a0ff'}}><span>INTELLIGENT SYSTEMS LAB</span><span>AJ / 01</span></div><div style={{fontSize:102,letterSpacing:-5,marginTop:70}}>AZQA JAFAR</div><div style={{fontSize:30,color:'#8eddeb',marginTop:15}}>AI & ML ENGINEER</div><div style={{display:'flex',fontSize:23,color:'#b9b2cd',marginTop:45}}>GENERATIVE AI · AGENTIC RAG · AI AGENTS</div><div style={{display:'flex',fontSize:17,letterSpacing:3,color:'#b9a0ff',borderTop:'1px solid #373047',paddingTop:25,marginTop:35}}>DATA → RETRIEVAL → REASONING → ACTION</div></div>,size); }

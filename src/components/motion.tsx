@@ -8,7 +8,7 @@ export function Reveal({ children, className = '' }: { children: React.ReactNode
 export function Specialty() {
   const reduced = useReducedMotion();
   const [index, setIndex] = useState(0);
-  const words = ['Generative AI', 'Agentic RAG', 'AI Agents', 'Machine Learning', 'LLM Engineering'];
+  const words = ['Generative AI Engineer', 'Agentic RAG Developer', 'AI Agents Engineer', 'LLM Systems Developer', 'Machine Learning Engineer'];
   useEffect(() => { if (reduced) return; const timer = setInterval(() => setIndex(i => (i + 1) % 5), 3500); return () => clearInterval(timer); }, [reduced]);
   return <span className="specialty"><span className="status-dot"/><span>FOCUS / </span><motion.strong key={index} initial={false} animate={{ opacity: [0.5, 1] }} transition={{ duration: reduced ? 0 : .4 }}>{words[index]}</motion.strong></span>;
 }

@@ -1,11 +1,20 @@
-# Azqa Jafar — AI & ML Engineer
+# Azqa Jafar — Intelligent Systems Lab
 A personal portfolio built with Next.js App Router, TypeScript, Tailwind CSS, Framer Motion, Lucide React, next/image, and next/font.
 
-![Portfolio preview](docs/portfolio-preview.png)
+![Portfolio preview](docs/lab-preview.jpg)
+
+## Live site
+Production deployment is awaiting Vercel account authorization. No public URL is claimed yet.
+
+## Overview
+An original AI engineering portfolio built around data → retrieval → reasoning → action. The reference portfolio served as a quality benchmark; the visual identity, content, and project diagrams are independently designed.
 
 ## Features
 - Responsive dark portfolio with a supplied, unaltered professional photograph
-- Five case-study routes and interactive schematic architecture diagrams
+- Five case-study routes with distinct interactive security, retrieval, telemetry, knowledge, and imaging schematics
+- Interactive conceptual intelligence blueprint with keyboard-selectable branches
+- Optional 2.2-second session intro, pausable stack strip, scroll progress, and reduced-motion support
+- Digital research notebook and an experience ledger with separate dates
 - CV-based experience, skills, education, achievements, and research
 - Accessible navigation, reduced motion, and contact validation
 - Server-rendered content, canonical metadata, social previews, Person structured data, robots, and sitemap
@@ -35,14 +44,18 @@ npm start
 
 ## Project structure
 ```text
-app/                  App Router pages, metadata, and contact API
-  projects/[slug]/    Generated case-study routes
-components/           Navigation, motion, architecture, contact form
-data/portfolio.ts     Verified project, expertise, and experience data
-lib/site.ts           Profile links and production URL
+src/app/               App Router pages, metadata, manifest, contact API
+  projects/[slug]/     Generated case-study routes
+src/components/        Intro, hero, systems, architecture, research, journey, UI
+src/data/              Verified project, expertise, capability, and experience data
+src/lib/site.ts        Profile links and production URL
+src/types/             Shared portfolio types
 public/               Supplied photograph and PDF
 tests/                Browser checks
 ```
+
+## Architecture
+The homepage composes small section components. Professional data lives in src/data, shared links in src/lib, and project types in src/types. Interactive diagrams are client components; the main content and case studies are server rendered. Styling uses Tailwind CSS and custom responsive CSS. Motion uses CSS and Framer Motion; no 3D engine is loaded.
 
 ## Environment
 Copy .env.example to .env.local. Never commit credentials.
@@ -52,7 +65,7 @@ Copy .env.example to .env.local. Never commit credentials.
 - CONTACT_TO: destination email
 - GOOGLE_SITE_VERIFICATION: optional Search Console verification code
 
-The contact endpoint validates input, rejects cross-origin submissions, uses a honeypot, limits payload length, and times out delivery requests. Delivery is only reported as successful after the provider accepts the email. Without email credentials, the form returns a clear unavailable message and directs visitors to the working email link. Enable platform rate limiting on /api/contact before exposing configured delivery to heavy public traffic.
+The contact endpoint validates input, rejects cross-origin submissions, uses a honeypot, limits payload length, and times out delivery requests. Delivery is only reported as successful after the provider accepts the email. Without email credentials, the form explains that delivery is unavailable and prepares a mailto link containing the visitor’s subject and message. The visitor opens and sends that draft in their own email application; the site never claims it was sent. Enable platform rate limiting on /api/contact before exposing configured delivery to heavy public traffic.
 
 ## Deployment
 Import the GitHub repository into Vercel using the Next.js preset and production branch main. Set NEXT_PUBLIC_SITE_URL to the assigned stable production domain, configure email variables through Vercel settings, and deploy. The URL fallback uses VERCEL_PROJECT_PRODUCTION_URL on Vercel and localhost only for local development.
