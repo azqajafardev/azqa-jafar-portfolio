@@ -24,6 +24,7 @@ export function ResearchScene() {
   const [stage, setStage] = useState(0);
   const [running, setRunning] = useState(false);
   const [source, setSource] = useState("B");
+  const [traceCount, setTraceCount] = useState(0);
   const doc = useRef<HTMLDivElement>(null);
   const { playing, reduced } = useSystemPlayback();
   useEffect(() => {
@@ -36,6 +37,7 @@ export function ResearchScene() {
   }, [stage, running, playing]);
   const trace = (id: string) => {
     setSource(id);
+    setTraceCount((value) => value + 1);
     doc.current?.focus({ preventScroll: true });
     doc.current?.scrollIntoView({
       behavior: reduced ? "auto" : "smooth",
@@ -72,6 +74,21 @@ export function ResearchScene() {
         </button>
       </div>
       <div className="research-zones">
+        {(stage === 5 || traceCount > 0) && (
+          <svg
+            key={traceCount}
+            className="citation-bridge"
+            viewBox="0 0 1000 70"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              pathLength="1"
+              d="M920 8V28Q920 58 890 58H110Q80 58 80 28V8"
+            />
+            <circle cx="80" cy="8" r="3" />
+          </svg>
+        )}
         <div className="document-zone">
           <span className="instrument-label">01 / SOURCE DOCUMENT</span>
           <div

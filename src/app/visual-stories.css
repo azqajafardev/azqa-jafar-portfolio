@@ -2221,3 +2221,45 @@
     object-position: 65% top !important;
   }
 }
+.research-zones {
+  position: relative;
+}
+.citation-bridge {
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 7px;
+  width: calc(100% - 60px);
+  height: 36px;
+  pointer-events: none;
+  overflow: visible;
+}
+.citation-bridge path {
+  fill: none;
+  stroke: #a8cce0;
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0.55;
+  animation: citationReturn 1.4s ease-out forwards;
+}
+.citation-bridge circle {
+  fill: #a8cce0;
+  opacity: 0.6;
+}
+@keyframes citationReturn {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (max-width: 760px) {
+  .citation-bridge {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .citation-bridge path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
